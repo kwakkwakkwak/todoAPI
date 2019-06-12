@@ -9,7 +9,7 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
     @Query(value = "SELECT * FROM Todo ORDER BY IF(ISNULL(PARENT), id, PARENT), id ", nativeQuery = true)
-    public List<Todo> findAllByOrdOrderBy();
+    public List<Todo> findAll();
 
 }
 

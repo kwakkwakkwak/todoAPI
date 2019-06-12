@@ -17,10 +17,10 @@ public class IndexController {
     @RequestMapping("/findAll")
     public List<Todo> findAll() {
 
-        return todoRepository.findAllByOrdOrderBy();
+        return todoRepository.findAll();
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public Object insert(@RequestBody Todo todo){
         try {
             todoRepository.save(todo);
@@ -28,7 +28,7 @@ public class IndexController {
             e.printStackTrace();
             return -1;
         }
-        return todoRepository.findAllByOrdOrderBy();
+        return todoRepository.findAll();
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class IndexController {
             return -1;
         }
 
-        return todoRepository.findAllByOrdOrderBy();
+        return todoRepository.findAll();
     }
 
 //    @RequestMapping(value = "/update",method = RequestMethod.POST)
